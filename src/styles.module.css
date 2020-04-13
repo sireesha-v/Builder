@@ -6,3 +6,40 @@
 	width:100%;
 	height:100%;
 }
+
+.gridView {
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+}
+
+.gridView tr {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+  	grid-template-rows: 1fr 1fr 1fr;
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+	align-items: stretch;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+/* .gridView tr::before {
+    content: "";
+    display: table;
+    padding-top: 100%;
+  } */
+
+.gridView td {
+	border: 1px solid black;
+	width: 300px;
+}
+
+img {
+	width: 300px;
+	flex-grow: 1;
+  	display: flex;
+  	background-size: cover;
+}
+

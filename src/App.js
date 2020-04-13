@@ -13,15 +13,26 @@ function App() {
     <div className={classNames(styles.container,'clearfix')}>
 		<Sidebar/>
 		<div className={styles.rightContainer}>
-			<Grid>
+			{/* <Grid className={styles.gridView}>
 				{items.map(item => (
 				<DragItem key={item.id} id={item.id} onMoveItem={moveItem}>
 					<GridItem>
 					<GridImage src={item.src}></GridImage>
-					</GridItem>
+					
 				</DragItem>
 				))}
-			</Grid>
+			</Grid> */}
+
+			<table className={styles.gridView}>
+				<tr>
+			{items.map(item => (
+				<DragItem key={item.id} id={item.id} onMoveItem={moveItem}>
+					<GridItem><td><img src={item.src} alt={'not available'}/></td></GridItem>
+				</DragItem>
+				))}
+				</tr>
+			</table>
+
 		</div>
     </div>
   );

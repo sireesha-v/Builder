@@ -43,5 +43,25 @@ export default [
     src:
       "https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     id: "5"
-  }
+  },
+  {
+    src:
+      "https://images.pexels.com/photos/2698761/pexels-photo-2698761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: "3c36057f-11de-4fc0-bc52-334c2339741j"
+  },
+  {
+    src:
+      "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: "10"
+  },
+  {
+    src:
+      "https://images.pexels.com/photos/3075988/pexels-photo-3075988.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    id: "12"
+  },
+  {
+    src:
+      "https://images.pexels.com/photos/1029609/pexels-photo-1029609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    id: "0a62f9fa-6f5c-4b09-8ff0-d2b9169426f5"
+  },
 ];

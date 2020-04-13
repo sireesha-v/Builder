@@ -6,12 +6,13 @@
 }
 ul{
 	height: 100%;
+	width: 100%;
 	background: #3C3C3C;
 }
 li{
 	color: #BDBDBD;
     list-style-type: none;
-    width: 100%;
+    width: auto;
     background: #3C3C3C;
 	height: 40px;
 	padding: 10px 20px;
