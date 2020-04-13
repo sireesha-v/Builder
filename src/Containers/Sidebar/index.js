@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Card from "./Containers/Card.js";
 import styles from "./styles.module.css";
 
 class Sidebar extends Component {
@@ -12,7 +13,9 @@ class Sidebar extends Component {
 		return (
 			<div className={styles.sidebar}>
 				<ul>
-					{this.state.processList.map(item => <li onClick={() => {}}>{item}</li>)}
+					{this.state.processList.map(item => <li onClick={() => {}}>
+					<Card text={item} />
+					</li>)}
 				</ul>
 			</div>
 		)
