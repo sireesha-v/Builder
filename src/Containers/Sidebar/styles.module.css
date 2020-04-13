@@ -19,6 +19,7 @@ li{
 	line-height: 41px;
 	font-family: 'Avenir';
 	border: 1px solid #000000;
+	cursor: move;
 }
 li.active{
 	background: #5B5B5B;
