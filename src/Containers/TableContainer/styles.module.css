@@ -1,25 +1,15 @@
-.rightContainer{
-	float: left;
-	width: calc(100% - 300px);
-}
-.container{
-	width:100%;
-	height:100%;
-}
-
 .gridView {
 	width: 100%;
 	height: 100%;
 	border-collapse: collapse;
 	border: 1px solid black;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-  	/* grid-template-rows: 1fr 1fr 1fr; */
 }
 
 .gridView tr {
 	width: 100%;
-	
+	/* display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+  	grid-template-rows: 1fr 1fr 1fr; */
 	/* display: flex; */
 	/* flex-wrap: wrap; */
 	align-items: stretch;
@@ -35,7 +25,8 @@
 
 .gridView td {
 	border: 1px solid black;
-	width: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 img {
@@ -44,4 +35,3 @@ img {
   	display: flex;
   	background-size: cover;
 }
-

@@ -5,6 +5,7 @@ import { Grid, GridImage, GridItem } from "./Grid";
 import GridContext from "./GridContext";
 import Sidebar from "./Containers/Sidebar";
 import styles from "./styles.module.css";
+import TableContainer from "./Containers/TableContainer";
 
 function App() {
   const { items, moveItem } = useContext(GridContext);
@@ -23,15 +24,14 @@ function App() {
 				))}
 			</Grid> */}
 
-			<table className={styles.gridView}>
-				<tr>
+			{/* <table className={styles.gridView}> */}
+				{/* <tr>
 			{items.map(item => (
-				<DragItem key={item.id} id={item.id} onMoveItem={moveItem}>
-					<GridItem><td><img src={item.src} alt={'not available'}/></td></GridItem>
-				</DragItem>
+				<td>&nbsp;</td>
 				))}
-				</tr>
-			</table>
+				</tr> */}
+			{/* </table> */}
+			<TableContainer/>
 
 		</div>
     </div>
