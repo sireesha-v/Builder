@@ -1,0 +1,8 @@
+.rightContainer{
+	float: left;
+	width: calc(100% - 300px);
+}
+.container{
+	width:100%;
+	height:100%;
+}
