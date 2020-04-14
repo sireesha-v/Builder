@@ -6,7 +6,7 @@ class Sidebar extends Component {
 	constructor(props) {
         super(props);
 		this.state = {
-			processList: ['Make Collars','Hem Band','Hemming','Prepare Flaps','Inspection','Making Fronts']
+			processList: [{id:1,name:'Make Collars'},{id:2,name:'Hem Band'},{id:3,name:'Hemming'},{id:4,name:'Prepare Flaps'},{id:5,name:'Inspection'},{id:6,name:'Making Fronts'}]
 		};
 	}
 	render() {
@@ -14,7 +14,7 @@ class Sidebar extends Component {
 			<div className={styles.sidebar}>
 				<ul>
 					{this.state.processList.map(item => <li onClick={() => {}}>
-					<Card text={item} />
+					<Card name={item.name} id={item.id}/>
 					</li>)}
 				</ul>
 			</div>

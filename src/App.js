@@ -1,7 +1,6 @@
 
 import React from 'react'
 import classNames from "classnames";
-import DragItem from "./DragItem";
 import Board from "./Containers/BoardView/Board"
 import Sidebar from "./Containers/Sidebar";
 import styles from "./styles.module.css";

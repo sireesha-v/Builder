@@ -1,32 +1,63 @@
-import React from 'react'
-import { BoardSquare } from './BoardSquare'
+import React, {Component} from "react";
+import {BoardSquare} from './BoardSquare';
+import {useDrop} from 'react-dnd'
 
 /** Styling properties applied to the board element */
 const boardStyle = {
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexWrap: 'wrap',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexWrap: 'wrap'
 }
 /** Styling properties applied to each square element */
-const squareStyle = { width: '12.5%', height: '6.5%' }
-
-const Board = () => {
-  function renderSquare(i) {
-    const x = i % 8
-    const y = Math.floor(i / 8)
-    return (
-      <div key={i} style={squareStyle}>
-        <BoardSquare x={x} y={y}>
-        </BoardSquare>
-      </div>
-    )
-  }
-
-  const squares = []
-  for (let i = 0; i < 120; i += 1) {
-    squares.push(renderSquare(i))
-  }
-  return <div style={boardStyle}>{squares}</div>
+const squareStyle = {
+    width: '12.5%',
+    height: '6.5%'
 }
-export default Board
+
+class Board extends Component {
+	constructor(props) {
+        super(props);
+		this.state = {
+			squares: []
+		};
+	}
+
+	componentDidMount(){
+		const squares = [];
+		for (let i = 0; i < 120; i += 1) {
+			squares.push({name: null,id:null});
+		}
+		this.setState({
+			squares
+		});
+	}
+	handleDrop = (item,i) => {
+		console.log("dede",this.state.squares);
+		const squares = this.state.squares.slice();
+		squares[i] = {
+			name: item.name,
+			id: item.id
+		};
+		this.setState({
+			squares
+		});
+	}
+	renderSquare = (i) => {
+		return this.state.squares.map((item,i) => {
+			return (
+				<div key={i} style={squareStyle}>
+					<BoardSquare onDrop={(item) => this.handleDrop(item,i)} data={item}/>
+				</div>
+			)
+		});
+    }
+	render() {
+		const {squares} = this.state;
+		return (
+			<div style={boardStyle}>{this.renderSquare()}</div>
+		)
+	}
+}
+
+export default Board;

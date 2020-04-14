@@ -1,29 +1,17 @@
-import React from 'react';
-import { DragSource } from 'react-dnd'
+import React from 'react'
+import { useDrag } from 'react-dnd'
 
-const boxSource = {
-	beginDrag(props) {
-	  return {
-		name: props.id
-	  };
-	},
-	endDrag(props, monitor) {
-	  const item = monitor.getItem();
-	  const dropResult = monitor.getDropResult();
-	  if (dropResult) {
-		props.onDrop(monitor.getItem().name, dropResult.name);
-	  }
-	}
-  };
-export default class Card extends React.Component {
-	render() {
-	  return this.props.connectDragSource(
-		<div>{this.props.text}</div>
-	  );
-	}
+
+const Card = ({name,id}) => {
+	const [, drag] = useDrag({ item: { type: 'listItem',name,id},
+	end: (item, monitor) => {
+		const dropResult = monitor.getDropResult()
+	  }})
+	return (
+	  <div ref={drag}>
+		{name}
+	  </div>
+	)
   }
-  Card = DragSource("Card", boxSource,
-	(connect, monitor) => ({
-	  connectDragSource: connect.dragSource(),
-	  isDragging: monitor.isDragging()
-	}))(Card);
+
+export default Card;
