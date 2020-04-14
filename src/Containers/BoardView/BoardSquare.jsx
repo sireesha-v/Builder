@@ -19,7 +19,8 @@ export const BoardSquare = ({ x, y, children }) => {
         height: '100%',
       }}
     >
-      <Square>{children}</Square>
+      <Square>{children}
+      </Square>
     </div>
   )
 }

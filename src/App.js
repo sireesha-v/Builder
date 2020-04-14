@@ -5,6 +5,7 @@ import DragItem from "./DragItem";
 import Board from "./Containers/BoardView/Board"
 import Sidebar from "./Containers/Sidebar";
 import styles from "./styles.module.css";
+import SampleCode from './Containers/SampleCode';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 		<Sidebar/>
 		<div className={styles.rightContainer}>
 			<Board/>
+      {/* <SampleCode/> */}
 		</div>
     </div>
   );
