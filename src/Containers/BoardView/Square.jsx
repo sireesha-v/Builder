@@ -21,8 +21,7 @@ export const Square = ({children}) => {
 		border: '1px solid #262626',
 		color: '#fff'
       }}
-    >
-      <div ref='abc' style={{...data}}>{console.log(this.ref.abc)}hello</div>{children}
+    >{children}
     </div>
   )
 }
