@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDrop} from 'react-dnd'
-import {Square} from './Square'
+import Square from './Square'
 
 export const BoardSquare = ({onDrop,data}) => {
 
