@@ -100,27 +100,31 @@ const Builder = (props) => {
 	useEffect(()=>{
 		setLastDroppedColor([
 			{
-			  "type": "DEPARTMENT",
-			  "name": "A",
-			  "id": "1",
-			  "x": 195,
-			  "y": 50
-			},
-			{
-			  "type": "DEPARTMENT",
-			  "name": "C",
-			  "id": "3",
-			  "x": 345,
-			  "y": 50
-			},
-			{
 				"type": "DEPARTMENT",
-				"name": "D",
-				"id": "4",
+				"name": "A",
+				"start": "1",
+				"end": "3",
+				"id": "1",
+				"x": 195,
+				"y": 50
+			  },
+			  {
+				"type": "DEPARTMENT",
+				"name": "B",
+				"start": "2",
+				"end": "3",
+				"id": "2",
 				"x": 195,
 				"y": 200
 			  },
-		  ]) // api.data.count from api after update store
+			  {
+				  "type": "DEPARTMENT",
+				  "name": "C",
+				  "id": "3",
+				  "x": 345,
+				  "y": 50
+				},
+		  ])
 	  }, [])
     const handleDrop = useCallback((color) => {
         setLastDroppedColor(color)
@@ -185,7 +189,16 @@ const Builder = (props) => {
     const squares = []
     for (let i = 0; i < 105; i++) {
         squares.push(renderSquare(i))
-    }
+	}
+	const getCoord = (item,block,coord) => {
+		if(block === 'start')
+		return item && item[coord];
+		if(block === 'end'){
+			const end = lastDroppedColor.find(block => block.id === item.end);
+			return end && end[coord];
+		}
+
+	}
     return (<div ref={drop} id="builder" style={{ ...style, backgroundColor, opacity, }}>
             {squares}
             {lastDroppedColor && lastDroppedColor.length > 0 && lastDroppedColor.map((item, index) => {
@@ -202,7 +215,7 @@ const Builder = (props) => {
             </defs>
             {lastDroppedColor && lastDroppedColor.length > 1 && lastDroppedColor.map((item, index) => {
                 if (index < lastDroppedColor.length - 1) {
-                    return drawArrow({ x: item.x, y: item.y }, { x: lastDroppedColor[index + 1]['x'], y: lastDroppedColor[index + 1]['y'] });
+                    return drawArrow({ x: getCoord(item,'start','x'), y: getCoord(item,'start','y') }, { x: getCoord(item,'end','x'), y: getCoord(item,'end','y') });
                 } else {
                     return '';
                 }
