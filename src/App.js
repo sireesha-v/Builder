@@ -3,75 +3,10 @@ import './App.css';
 import DraggableList from "./Components/DraggableList";
 import Builder from "./Components/Builder";
 import { DndProvider } from 'react-dnd'
-import { FlowChartWithState } from "@mrblenny/react-flow-chart";
-import Backend from 'react-dnd-html5-backend'
-const chartSimple = {
-  offset: {
-    x: 0,
-    y: 0
-  },
-  nodes: {
-    node1: {
-      id: "node1",
-      type: "output-only",
-      position: {
-        x: 300,
-        y: 100
-      },
-      ports: {
-        port1: {
-          id: "port1",
-          type: "output",
-          properties: {
-            value: "yes"
-          }
-        },
-        port2: {
-          id: "port2",
-          type: "output",
-          properties: {
-            value: "no"
-          }
-        }
-      }
-    },
-    node2: {
-      id: "node2",
-      type: "input-output",
-      position: {
-        x: 300,
-        y: 300
-      },
-      ports: {
-        port1: {
-          id: "port1",
-          type: "input"
-        },
-        port2: {
-          id: "port2",
-          type: "output"
-        }
-      }
-    },
-  },
-  links: {
-    link1: {
-      id: "link1",
-      from: {
-        nodeId: "node1",
-        portId: "port2"
-      },
-      to: {
-        nodeId: "node2",
-        portId: "port1"
-      },
-    },
-  },
-  selected: {},
-  hovered: {}
-};
+import Backend from 'react-dnd-html5-backend';
 class App extends Component {
   state = {
+    searchString: '',
     departments: [
       {
         name: "A",
@@ -96,29 +31,111 @@ class App extends Component {
       {
         name: "F",
         id: "6"
-      }
-    ],
-    chart: chartSimple
+      },
+      {
+        name: "G",
+        id: "7"
+      },
+      {
+        name: "H",
+        id: "8"
+      },
+      {
+        name: "I",
+        id: "9"
+      },
+      {
+        name: "J",
+        id: "10"
+      },
+      {
+        name: "K",
+        id: "11"
+      },
+      {
+        name: "L",
+        id: "12"
+      },
+      {
+        name: "M",
+        id: "13"
+      },
+      {
+        name: "N",
+        id: "14"
+      },
+      {
+        name: "0",
+        id: "15"
+      },
+      {
+        name: "P",
+        id: "16"
+      },
+      {
+        name: "Q",
+        id: "17"
+      },
+      {
+        name: "R",
+        id: "18"
+      },
+
+      {
+        name: "S",
+        id: "19"
+      },
+      {
+        name: "T",
+        id: "20"
+      },
+      {
+        name: "U",
+        id: "21"
+      },
+      {
+        name: "V",
+        id: "22"
+      },
+      {
+        name: "W",
+        id: "23"
+      },
+      {
+        name: "X",
+        id: "24"
+      },
+      {
+        name: "Y",
+        id: "25"
+      },
+      {
+        name: "Z",
+        id: "26"
+      },
+    ]
   }
 
   removeItemOnDrop = (id) => {
     this.setState({departments: this.state.departments.filter(item => item.id !== id)});
   }
 
+  handleChange = (e) => {
+    if(e.target.value) {
+      this.setState({searchString: e.target.value});
+    } else {
+      this.setState({searchString: ''});
+    }
+  }
 
   render() {
-    const { departments, chart } = this.state;
-    const stateActions = (data) => {
-      console.log(data);
-      this.setState({chart: data});
-    }
+    const { departments, searchString } = this.state;
     return (
       <div className="App">
       <DndProvider backend={Backend}>
-        <DraggableList departments={departments} />
-        <Builder removeItemOnDrop={this.removeItemOnDrop} />
+        <DraggableList searchString={searchString} handleChange={this.handleChange} departments={departments} />
+        <Builder searchString={searchString} removeItemOnDrop={this.removeItemOnDrop} />
       </DndProvider>
-      {/* <FlowChartWithState initialValue={chart} callback={stateActions} /> */}
       </div>
     );
   }
